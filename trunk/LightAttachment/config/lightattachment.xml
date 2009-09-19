@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lightattachment SYSTEM "lightattachment.dtd" >
+
+<lightattachment>
+
+  <hostname>vmsource.e-logiq.net</hostname>
+
+  <postfix>  	
+    <in-address host="localhost" port="10027" timeout="500"/>
+    <out-address host="localhost" port="10028"/>
+  </postfix>
+
+  <message>
+    <domain>e-logiq.net</domain>
+  	<message-size>
+  		<max-size>1000000000</max-size>
+  		<min-size>1000000</min-size>
+  		<in-memory-limit>1000000</in-memory-limit>
+  	</message-size>
+  	<decode-base64>true</decode-base64>
+  	<process-partial>true</process-partial>
+  	<output-limit>100</output-limit>
+  </message>
+
+  <ebigsend>
+  	<address>
+  		<default>http://192.168.253.63/e-BigSend/FileMailUpload</default>
+  		<alternate>
+  			<incoming-host>[^@]*@e-logiq.net</incoming-host>
+  			<outcoming-host>http://192.168.253.63/e-BigSend/FileMailUpload</outcoming-host>
+  		</alternate>
+  		<alternate>
+  			<incoming-host>[^@]*@vmsource.e-logiq.net</incoming-host>
+  			<outcoming-host>http://192.168.253.63/e-BigSend/FileMailUpload</outcoming-host>
+  		</alternate>
+  		<alternate>
+  			<incoming-host>[^@]*@gmail.com</incoming-host>
+  			<outcoming-host>http://192.168.253.63/e-BigSend/FileMailUpload</outcoming-host>
+  		</alternate>  		
+	</address>
+  	<timeout>5000</timeout>
+  	<attempt>2</attempt>
+  	<attempt-wait>2000</attempt-wait>
+  	<head-message>Click on the following link(s) to download the attachment(s):</head-message>
+  	<att-message>Attachment: {name} at {address}</att-message>
+  </ebigsend>
+
+  <directory>
+  	<log>log/LightAttachment.log</log>
+  	<temp>mails/</temp>
+  	<log-config>config/log4j.lcf</log-config>
+  	<free-space>10</free-space>
+  </directory>
+
+  <report>
+  	<length>1h</length>
+  	<format>pdf</format>
+  	<mailfrom>stage1@e-logiq.net</mailfrom>
+  	<mailto>giann008@gmail.com</mailto>
+  	<disposition>attachment</disposition>
+  	<smtp>192.168.253.31</smtp>
+  	<template>stats/reports/report-template.html</template>
+  </report>
+  
+</lightattachment>

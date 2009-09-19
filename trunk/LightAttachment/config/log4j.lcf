@@ -1,0 +1,17 @@
+log4j.rootLogger=INFO, stdout, A1
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %c %-5p - %m%n
+log4j.appender.stat4j=com.stats.StatisticAppender
+log4j.appender.A1=org.apache.log4j.RollingFileAppender
+log4j.appender.A1.MaxFileSize = 5000KB
+log4j.appender.A1.MaxBackupIndex = 5
+log4j.appender.A1.File=log/LightAttachment.log
+#log4j.appender.A1.DatePattern='.'yyyy-MM-dd
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+# Print the date in ISO 8601 format
+log4j.appender.A1.layout.ConversionPattern=%d %-5p %l - %m%n
+
+
+log4j.logger.com = INFO, stat4j
