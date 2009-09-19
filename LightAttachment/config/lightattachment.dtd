@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT lightattachment (hostname,postfix,message,ebigsend,directory,report)>
+
+<!ELEMENT postfix (in-address,out-address)>
+
+<!ELEMENT in-address EMPTY>
+
+<!ELEMENT out-address EMPTY>
+
+<!ATTLIST in-address 
+	host CDATA #REQUIRED
+	port CDATA #REQUIRED
+	timeout CDATA #REQUIRED>
+	
+<!ATTLIST out-address 
+	host CDATA #REQUIRED
+	port CDATA #REQUIRED>	
+	
+<!ELEMENT hostname (#PCDATA)>
+	
+<!ELEMENT message (domain,message-size,decode-base64,process-partial,output-limit)>
+
+<!ELEMENT message-size (max-size,min-size,in-memory-limit)>
+
+<!ELEMENT output-limit (#PCDATA)>
+
+<!ELEMENT max-size (#PCDATA)>
+
+<!ELEMENT min-size (#PCDATA)>
+
+<!ELEMENT domain (#PCDATA)>
+
+<!ELEMENT in-memory-limit (#PCDATA)>
+
+<!ELEMENT process-partial (#PCDATA)>
+
+<!ELEMENT decode-base64 (#PCDATA)>
+
+<!ELEMENT ebigsend (address,timeout,attempt,attempt-wait,head-message,att-message)>
+
+<!ELEMENT address (default,alternate*)>
+
+<!ELEMENT default (#PCDATA)>
+
+<!ELEMENT alternate (incoming-host,outcoming-host)>
+
+<!ELEMENT incoming-host (#PCDATA)>
+
+<!ELEMENT outcoming-host (#PCDATA)>
+
+<!ELEMENT timeout (#PCDATA)>
+
+<!ELEMENT attempt (#PCDATA)>
+
+<!ELEMENT attempt-wait (#PCDATA)>
+
+<!ELEMENT head-message (#PCDATA)>
+
+<!ELEMENT att-message (#PCDATA)>
+
+<!ELEMENT directory (log,temp,log-config,free-space)>
+
+<!ELEMENT log (#PCDATA)>
+
+<!ELEMENT log-config (#PCDATA)>
+
+<!ELEMENT temp (#PCDATA)>
+
+<!ELEMENT free-space (#PCDATA)>
+
+<!ELEMENT report (length,format,mailfrom,mailto,disposition,smtp,template)>
+
+<!ELEMENT length (#PCDATA)>
+
+<!ELEMENT format (#PCDATA)>
+
+<!ELEMENT mailto (#PCDATA)>
+
+<!ELEMENT smtp (#PCDATA)>
+
+<!ELEMENT mailfrom (#PCDATA)>
+
+<!ELEMENT disposition (#PCDATA)>
+
+<!ELEMENT template (#PCDATA)>
