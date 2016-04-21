@@ -1,0 +1,1 @@
+LightAttachment is a Postfix content filter designed to extract large attachment files from mails, saved them to a data server and replace them by a link into the mails. Its activity is monitored by a complete statistical reporting system.
